@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="Stephen Boluwatife Victor — Web Developer and Digital Creator.">
+<title>Stephen Victor | Creative Developer</title>
+
+<style>
+:root {
+  --bg:#080b14;
+  --surface:#101727;
+  --surface2:#151f32;
+  --blue:#5685ff;
+  --cyan:#70e1ff;
+  --text:#f5f7ff;
+  --muted:#a1adc3;
+  --border:#26334b;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+.container{width:min(1120px,90%);margin:auto}
+section{padding:90px 0}
+section[id]{scroll-margin-top:85px}
+
+/* NAVIGATION */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,11,20,.91);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav{
+  min-height:76px;display:flex;
+  align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{font-size:1.55rem;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--cyan)}
+.links{display:flex;gap:26px;list-style:none}
+.links a{font-size:.9rem;color:var(--muted);transition:.2s}
+.links a:hover,.links a:focus{color:var(--cyan)}
+.menu{
+  display:none;background:var(--surface2);
+  color:white;border:1px solid var(--border);
+  padding:8px 12px;border-radius:9px;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;justify-content:center;align-items:center;
+  gap:8px;padding:12px 19px;border-radius:10px;
+  font-weight:700;border:1px solid var(--border);
+  cursor:pointer;transition:transform .2s,background .2s;
+}
+.btn:hover{transform:translateY(-3px)}
+.primary{
+  background:linear-gradient(120deg,#4778ff,#635bff);
+  border-color:transparent;color:white;
+  box-shadow:0 8px 28px #4168ff2b;
+}
+.secondary{background:var(--surface);color:white}
+.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+
+/* HERO */
+.hero{
+  min-height:650px;display:flex;align-items:center;
+  padding:100px 0;position:relative;isolation:isolate;
+}
+.hero:before{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:360px;height:360px;right:2%;top:15%;
+  background:#355bff;filter:blur(150px);opacity:.22;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid #34496c;background:#121d31;
+  color:var(--cyan);border-radius:30px;padding:7px 14px;
+  font-size:.76rem;letter-spacing:1px;
+}
+.dot{width:7px;height:7px;background:#54e6a2;border-radius:50%}
+.hero h1{
+  max-width:900px;margin-top:26px;
+  font-size:clamp(2.7rem,8vw,5.7rem);
+  line-height:1.08;letter-spacing:-3px;
+}
+.gradient{
+  background:linear-gradient(100deg,#7ea5ff,#72e6ff);
+  color:transparent;background-clip:text;-webkit-background-clip:text;
+}
+.hero p{max-width:620px;color:var(--muted);margin-top:22px;font-size:1.05rem}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;color:var(--muted);font-size:.88rem}
+.hero-meta span{display:flex;align-items:center;gap:7px}
+.hero-meta b{color:var(--cyan)}
+
+/* HEADINGS */
+.heading{margin-bottom:36px}
+.kicker{color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:bold}
+.heading h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.2;margin-top:9px;letter-spacing:-1px}
+.heading p{color:var(--muted);max-width:640px;margin-top:13px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px}
+.panel{
+  background:linear-gradient(145deg,#121d30,#0e1422);
+  border:1px solid var(--border);padding:28px;border-radius:18px;
+}
+.panel h3{font-size:1.35rem}
+.panel p{color:var(--muted);margin-top:14px}
+.facts{display:grid;gap:13px}
+.fact{
+  padding:18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:13px;
+}
+.fact strong{display:block;font-size:1rem}
+.fact span{display:block;color:var(--muted);font-size:.88rem}
+
+/* SKILLS */
+.skill-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
+.skill{
+  border:1px solid #2b4166;background:#142039;
+  padding:7px 12px;border-radius:8px;color:#c6d8ff;font-size:.86rem;
+}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:17px;padding:25px;transition:.25s;
+}
+.card:hover{transform:translateY(-5px);border-color:#537bdb}
+.card-icon{
+  display:grid;place-items:center;width:49px;height:49px;
+  border-radius:13px;background:#192b49;color:var(--cyan);
+  font-size:1.4rem;margin-bottom:18px;
+}
+.card h3{font-size:1.2rem;margin-bottom:9px}
+.card p{font-size:.94rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+.tag{
+  background:#0b1220;border:1px solid var(--border);
+  color:#b7c7e6;border-radius:7px;padding:4px 9px;font-size:.77rem;
+}
+
+/* PROJECTS */
+.project{padding:0;overflow:hidden}
+.project-cover{
+  min-height:170px;padding:23px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#142647,#263e77,#111b35);
+  position:relative;overflow:hidden;
+}
+.project-cover:before{
+  content:"";position:absolute;width:180px;height:180px;
+  border:1px solid #ffffff20;border-radius:50%;
+  right:-30px;top:-90px;
+}
+.project-cover:after{
+  content:"";position:absolute;width:140px;height:140px;
+  border:1px solid #ffffff20;border-radius:50%;
+  left:-45px;bottom:-100px;
+}
+.mock-window{
+  width:min(100%,340px);position:relative;z-index:1;
+  border:1px solid #ffffff35;background:#0c1324;
+  border-radius:10px;padding:12px;box-shadow:0 15px 35px #0005;
+}
+.mock-top{display:flex;gap:5px;margin-bottom:12px}
+.mock-top i{width:6px;height:6px;border-radius:50%;background:#7589ae}
+.mock-line{height:7px;width:85%;border-radius:4px;background:#304b7a;margin:9px 0}
+.mock-line.short{width:55%;background:#4e7cff}
+.mock-boxes{display:flex;gap:7px;margin-top:13px}
+.mock-boxes i{height:35px;flex:1;border-radius:5px;background:#172746}
+.project-content{padding:23px}
+.project-type{font-size:.75rem;color:var(--cyan);text-transform:uppercase;letter-spacing:1.3px}
+.project-content h3{font-size:1.2rem;margin:7px 0}
+.project-content p{color:var(--muted);font-size:.91rem}
+.project-link{display:inline-block;color:var(--cyan);font-weight:bold;margin-top:18px;font-size:.9rem}
+.project-link:hover{text-decoration:underline}
+
+/* CONTACT */
+.contact-panel{
+  padding:clamp(25px,6vw,55px);
+  border:1px solid #30456b;border-radius:22px;
+  background:radial-gradient(ellipse at top right,#182d50 0%,#101827 48%,#0c1220 100%);
+}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px}
+.contact-info p{color:var(--muted);margin-top:15px}
+.contact-form{display:grid;gap:14px}
+.contact-form label{display:grid;gap:7px;color:var(--muted);font-size:.88rem}
+.contact-form input,.contact-form textarea{
+  width:100%;padding:13px;color:white;background:#090f1b;
+  border:1px solid var(--border);border-radius:9px;outline:none;
+}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--blue)}
+.contact-form textarea{min-height:120px;resize:vertical}
+.status{font-size:.82rem;color:var(--muted);margin-top:10px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:.85rem}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+footer a{color:var(--cyan)}
+
+/* ANIMATION */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+  .menu{display:block}
+  .links{
+    display:none;position:absolute;top:76px;left:0;right:0;
+    padding:22px 5%;background:#0a0f1b;
+    border-bottom:1px solid var(--border);
+    flex-direction:column;gap:16px;
+  }
+  .links.open{display:flex}
+  .links a{display:block;padding:4px 0}
+  .hero{min-height:auto;padding:90px 0}
+  .hero h1{letter-spacing:-1.7px}
+  section{padding:65px 0}
+  .about-grid,.grid,.contact-grid{grid-template-columns:1fr}
+  .panel,.card{padding:22px}
+  .project{padding:0}
+  .project-content{padding:22px}
+  .contact-panel{padding:24px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">STEV<span>.</span></a>
+    <button class="menu" id="menuBtn" aria-expanded="false"
+      aria-controls="navLinks">☰ Menu</button>
+    <nav aria-label="Main navigation">
+      <ul class="links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <span class="eyebrow"><span class="dot"></span> DIGITAL CREATOR & DEVELOPER</span>
+    <h1>Ideas into digital<br><span class="gradient">experiences that matter.</span></h1>
+    <p>
+      I'm Stephen Boluwatife Victor. I build websites, edit videos,
+      design graphics, and create content that helps ideas stand out.
+    </p>
+    <div class="actions">
+      <a href="#projects" class="btn primary">Explore My Work ↗</a>
+      <a href="#contact" class="btn secondary">Let's Work Together</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>✦</b> Creative solutions</span>
+      <span><b>✦</b> Responsive design</span>
+      <span><b>✦</b> Always learning</span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="heading">
+      <span class="kicker">A little about me</span>
+      <h2>Creativity meets technology.</h2>
+      <p>I enjoy combining design, technology, and storytelling to create useful digital experiences.</p>
+    </div>
+    <div class="about-grid">
+      <div class="panel">
+        <h3>I'm Stephen Victor.</h3>
+        <p>
+          I'm a Web Developer and Digital Creator with an interest
+          in building useful websites and producing engaging digital content.
+        </p>
+        <p>
+          I believe every great digital project starts with understanding
+          the idea, the audience, and the problem it should solve.
+          I'm continually developing my skills and building projects
+          that turn ideas into practical results.
+        </p>
+        <div class="skill-list">
+          <span class="skill">Creative thinking</span>
+          <span class="skill">Web design</span>
+          <span class="skill">Digital media</span>
+          <span class="skill">Problem solving</span>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>01 / Web</strong><span>Building responsive digital experiences</span></div>
+        <div class="fact"><strong>02 / Design</strong><span>Creating clear and engaging visuals</span></div>
+        <div class="fact"><strong>03 / Content</strong><span>Turning ideas into digital stories</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="heading">
+      <span class="kicker">What I can do</span>
+      <h2>Services built around your ideas.</h2>
+      <p>Digital services for people and businesses ready to improve their online presence.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="card-icon">⌘</span>
+        <h3>Web Development</h3>
+        <p>Responsive websites, landing pages, and interactive web interfaces designed for different screen sizes.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      </article>
+      <article class="card">
+        <span class="card-icon">▶</span>
+        <h3>Video Editing</h3>
+        <p>Video editing for social media, promotional campaigns, storytelling, and engaging digital content.</p>
+        <div class="tags"><span class="tag">Short-form video</span><span class="tag">Storytelling</span></div>
+      </article>
+      <article class="card">
+        <span class="card-icon">✳</span>
+        <h3>Graphic Design</h3>
+        <p>Visual concepts and creative materials for brands, promotions, online content, and digital campaigns.</p>
+        <div class="tags"><span class="tag">Visual design</span><span class="tag">Branding</span></div>
+      </article>
+      <article class="card">
+        <span class="card-icon">✎</span>
+        <h3>Content Creation</h3>
+        <p>Creative concepts and digital content designed to communicate ideas and engage audiences.</p>
+        <div class="tags"><span class="tag">Creative ideas</span><span class="tag">Digital content</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="heading">
+      <span class="kicker">Selected work</span>
+      <h2>Projects & experiments.</h2>
+      <p>Replace these sample concepts with your actual projects as you build them.</p>
+    </div>
+    <div class="grid">
+      <article class="card project">
+        <div class="project-cover" aria-label="Illustrative website preview">
+          <div class="mock-window">
+            <div class="mock-top"><i></i><i></i><i></i></div>
+            <div class="mock-line short"></div>
+            <div class="mock-line"></div>
+            <div class="mock-boxes"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-type">01 / Web Development</span>
+          <h3>Business Website</h3>
+          <p>A responsive website concept designed to present business services clearly.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          <a class="project-link" href="#contact">Discuss a similar project ↗</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-cover" style="background:linear-gradient(135deg,#39204e,#7440a3,#182344)" aria-label="Illustrative creative media preview">
+          <div class="mock-window">
+            <div class="mock-top"><i></i><i></i><i></i></div>
+            <div class="mock-line short" style="background:#b38aff"></div>
+            <div class="mock-line"></div>
+            <div class="mock-boxes"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-type">02 / Video Editing</span>
+          <h3>Creative Media Project</h3>
+          <p>A portfolio space for promotional videos, storytelling, and social media edits.</p>
+          <div class="tags"><span class="tag">Editing</span><span class="tag">Video</span><span class="tag">Content</span></div>
+          <a class="project-link" href="#contact">Discuss a similar project ↗</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-cover" style="background:linear-gradient(135deg,#163e43,#247d85,#172744)" aria-label="Illustrative graphic design preview">
+          <div class="mock-window">
+            <div class="mock-top"><i></i><i></i><i></i></div>
+            <div class="mock-line short" style="background:#65e4d1"></div>
+            <div class="mock-line"></div>
+            <div class="mock-boxes"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-type">03 / Graphic Design</span>
+          <h3>Visual Branding Concept</h3>
+          <p>A space to display visual identities, social graphics, and promotional designs.</p>
+          <div class="tags"><span class="tag">Graphics</span><span class="tag">Branding</span></div>
+          <a class="project-link" href="#contact">Discuss a similar project ↗</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-cover" style="background:linear-gradient(135deg,#47321a,#a76b28,#252047)" aria-label="Illustrative web application preview">
+          <div class="mock-window">
+            <div class="mock-top"><i></i><i></i><i></i></div>
+            <div class="mock-line short" style="background:#ffc16a"></div>
+            <div class="mock-line"></div>
+            <div class="mock-boxes"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-type">04 / Web Application</span>
+          <h3>Interactive Web App</h3>
+          <p>A showcase for browser-based tools and applications built with JavaScript.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">UI</span></div>
+          <a class="project-link" href="#contact">Discuss a similar project ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-panel">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="kicker">Let's connect</span>
+          <div class="heading">
+            <h2>Have an idea?<br><span class="gradient">Let's build it.</span></h2>
+          </div>
+          <p>
+            Have a website, design, video, or content project in mind?
+            Send me a message to start the conversation.
+          </p>
+          <div class="actions">
+            <!-- Replace YOUR_WHATSAPP_NUMBER with your country code and number.
+                 Use digits only, e.g. 2348012345678. -->
+            <a class="btn secondary" id="whatsappLink"
+               href="https://wa.me/2340000000000"
+               target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+          </div>
+          <p class="status">Remember to configure your real WhatsApp number in the code.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label>Your name
+            <input id="visitorName" type="text" placeholder="Your name" required autocomplete="name">
+          </label>
+          <label>Email address
+            <input id="visitorEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+          </label>
+          <label>Tell me about your project
+            <textarea id="visitorMessage" placeholder="What would you like to create?" required></textarea>
+          </label>
+          <button type="submit" class="btn primary">Prepare Email Message ↗</button>
+          <p id="formStatus" class="status" aria-live="polite">
+            This form prepares an email in your email app. It does not send directly.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Stephen Boluwatife Victor</p>
+    <p>Designed with <a href="#home">purpose & creativity ↗</a></p>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.textContent = open ? "✕ Close" : "☰ Menu";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰ Menu";
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Reveal cards on scroll, with reduced-motion support.
+if (
+  "IntersectionObserver" in window &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+  const items = document.querySelectorAll(
+    ".heading, .panel, .fact, .card, .contact-panel"
+  );
+
+  items.forEach(item => item.classList.add("reveal"));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  items.forEach(item => observer.observe(item));
+}
+
+// IMPORTANT: replace this with your own email address.
+const YOUR_EMAIL = "boluwatifestephen56@gmail.com";
+
+// IMPORTANT: replace with your own WhatsApp number, digits only.
+// Example format for Nigeria: 2348012345678
+const YOUR_WHATSAPP = "2347087194216";
+
+document.getElementById("whatsappLink").addEventListener("click", event => {
+  if (YOUR_WHATSAPP === "2347087194216") {
+    event.preventDefault();
+    alert("Please add your real WhatsApp number to the code first.");
+  }
+});
+
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+
+  if (YOUR_EMAIL === "boluwatifestephen56@gmail.com") {
+    document.getElementById("formStatus").textContent =
+      "Please replace YOUR_EMAIL in the JavaScript with your real email address first.";
+    return;
+  }
+
+  const name = document.getElementById("visitorName").value.trim();
+  const email = document.getElementById("visitorEmail").value.trim();
+  const message = document.getElementById("visitorMessage").value.trim();
+
+  const subject = encodeURIComponent("Portfolio inquiry from " + name);
+  const body = encodeURIComponent(
+    "Name: " + name + "\nEmail: " + email +
+    "\n\nProject details:\n" + message
+  );
+
+  document.getElementById("formStatus").textContent =
+    "Opening your email application...";
+
+  window.location.href =
+    "mailto:" + YOUR_EMAIL + "?subject=" + subject + "&body=" + body;
+});
+</script>
+</body>
+</html>
